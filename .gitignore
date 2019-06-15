@@ -142,3 +142,8 @@ dmypy.json
 
 # MS Python Language Server
 XDG_CACHE_HOME/
+
+# API Keys
+keys.*
+# Misc variables
+vars.json
