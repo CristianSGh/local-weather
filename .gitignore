@@ -139,3 +139,6 @@ dmypy.json
 .history
 
 # End of https://www.gitignore.io/api/python,visualstudiocode
+
+# MS Python Language Server
+XDG_CACHE_HOME/
