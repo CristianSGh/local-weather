@@ -5,23 +5,12 @@ import sys
 import json
 
 import requests
-
-# URLs
-# Base: http://api.apixu.com/v1
-# Current weather: http://api.apixu.com/v1/current.json?key=...&q=...
-
-
-def get_urls():
-    with open('vars.json') as f:
-        urls = json.load(f)
-        return urls
+from dotenv import load_dotenv
 
 
 def get_key() -> str:
-    with open('keys.json') as f:
-        data = json.load(f)
-        api_key = data['apixu']
-        return api_key
+    api_key = os.getenv("APIXU_KEY")
+    return api_key
 
 
 def get_weather(url: str, key: str, query: str):
@@ -32,8 +21,6 @@ def get_weather(url: str, key: str, query: str):
 
 
 if __name__ == '__main__':
-    api_key = get_key()
-    # print(api_key)
-    urls = get_urls()
-    # print(urls)
-    get_weather(urls['apixu_current'], api_key, 'Bucharest')
+    dotenv_path = os.path.join('..', '.env')
+    print(dotenv_path)
+    load_dotenv(dotenv_path=dotenv_path)
